@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/hakdo/coffeectf/issues"
   },
-  "homepage": "https://github.com/hakdo/coffeectf#readme"
+  "homepage": "https://github.com/hakdo/coffeectf#readme",
+  "dependencies": {
+    "mongoose": "^5.8.10"
+  }
 }
