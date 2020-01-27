@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+body {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+font-family: 'Inconsolata', monospace;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #444;
+}
+
+th, td {
+  padding: 10px;
+}
+
+th {
+  letter-spacing: 2px;
+}
+
+td {
+  letter-spacing: 1px;
+}
+
+tbody td {
+  text-align: center;
+}
+
+tfoot th {
+  text-align: right;
+}
+
+/* Form things */
+div.cmd {
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.hackbtn {
+  height: 25px;
+  width: 100%;
+}
+
+input.cmd {
+  margin-bottom: 5px;
+  height: 25px;
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 90% 10%;
+}
+
+.grid-item {
+  padding: 6px;
+}
+
+.cmdprompt {
+  min-height: 100px;
+  background-color: #444;
+  color: #ccc;
+  padding-left: 10px;
+  padding-right: 15px;
+  font-family: "courier";
+}
+
+.errmsg {
+  color: white;
+  font-size: larger;
+  text-decoration: underline;
+}
