@@ -1,0 +1,22 @@
+{
+  "name": "coffeectf",
+  "version": "1.0.0",
+  "description": "Dashboard for running mini ctf's",
+  "main": "index.js",
+  "scripts": {
+    "prebuild": "node ./scripts/installer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakdo/coffeectf.git"
+  },
+  "keywords": [
+    "ctfdash"
+  ],
+  "author": "h.olsen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hakdo/coffeectf/issues"
+  },
+  "homepage": "https://github.com/hakdo/coffeectf#readme"
+}
