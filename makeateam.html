@@ -11,14 +11,9 @@
 <body>
     <div id="netlifybtn" data-netlify-identity-button></div>
     <h1>Make a team</h1>
-    <div id="userinfo"></div>
+    <div id="usrtag"></div>
 
     
 </body>
-<script>
-document.addEventListener("load", function () {
-    var user = netlifyIdentity.currentUser();
-    document.getElementById("userinfo").innerHTML = user.email;
-})
-</script>
+<script src="assets/js/dynstuff.js"></script>
 </html>
