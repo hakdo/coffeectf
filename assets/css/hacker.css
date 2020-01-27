@@ -74,3 +74,25 @@ input.cmd {
   font-size: larger;
   text-decoration: underline;
 }
+
+/* netlify styling */
+
+.netlify-identity-item {
+  list-style: none;
+  display: inline;
+}
+
+.netlify-identity-signup {
+  text-decoration: none;
+  color: #fff;
+  background-color: #444;
+  padding: 15px;
+}
+
+.netlify-identity-login {
+  text-decoration: none;
+  color: #fff;
+  background-color: #444;
+  padding: 15px;
+  margin-left: 5px;
+}
