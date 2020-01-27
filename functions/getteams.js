@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 exports.handler = async event => {
     // function to get CTF teams
     var teamSchema = new mongoose.Schema({
