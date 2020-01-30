@@ -96,3 +96,14 @@ input.cmd {
   padding: 15px;
   margin-left: 5px;
 }
+
+#loginbtn {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loginbtn {
+  padding-top: 50px;
+  max-width: 400px;
+  cursor: pointer;
+}

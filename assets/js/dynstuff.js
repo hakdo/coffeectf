@@ -1,4 +1,10 @@
 window.addEventListener("load", function () {
     var user = netlifyIdentity.currentUser();
-    document.getElementById("usrtag").innerHTML = user.email;
+    var username = '';
+    if (user == 'undefined') {
+        username = 'Anonymous Donkey';
+    } else {
+        username = user.email;
+    }
+    document.getElementById("usrtag").innerHTML = username;
 })
