@@ -1,10 +1,12 @@
+var allowed_nonauth = ['/', '/loginrequired', '/loginrequired.html'];
+
 var authcheck = function () {
     var user = netlifyIdentity.currentUser();
     var username = '';
     if (user == undefined) {
         username = 'anonymous@donkey.business';
         // check if page is allowed as anonymous
-        if (!window.location.pathname.includes('loginrequired')) {
+        if (!allowed_nonauth.includes(window.location.pathname)) {
             window.location = "/loginrequired.html";
         }
     } else {
