@@ -3,7 +3,7 @@ var allowed_nonauth = ['/', '/loginrequired', '/loginrequired.html'];
 var authcheck = function () {
     var user = netlifyIdentity.currentUser();
     var username = '';
-    if (user == undefined) {
+    if (!user) {
         username = 'anonymous@donkey.business';
         // check if page is allowed as anonymous
         if (!allowed_nonauth.includes(window.location.pathname)) {
@@ -23,3 +23,6 @@ if (window.location.pathname.includes('loginrequired')) {
 }
 
 window.addEventListener("load", authcheck());
+netlifyIdentity.on("login", function () {
+    document.getElementById("usrtag").innerHTML = netlifyIdentity.currentUser().email;
+})
