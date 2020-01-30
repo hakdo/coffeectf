@@ -26,3 +26,8 @@ window.addEventListener("load", authcheck());
 netlifyIdentity.on("login", function () {
     document.getElementById("usrtag").innerHTML = netlifyIdentity.currentUser().email;
 })
+
+netlifyIdentity.on("logout", function () {
+    document.getElementById("usrtag").innerHTML = "anonymous@donkey.business";
+    window.location = "/";
+})
