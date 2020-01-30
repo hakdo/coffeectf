@@ -15,7 +15,6 @@ var authcheck = function () {
     document.getElementById("usrtag").innerHTML = username;
 }
 
-window.addEventListener("load", authcheck());
 
 if (window.location.pathname.includes('loginrequired')) {
     document.getElementById("loginbtn").addEventListener("click", function () {
@@ -23,4 +22,4 @@ if (window.location.pathname.includes('loginrequired')) {
     })
 }
 
-netlifyIdentity.on("login", authcheck())
+window.addEventListener("load", authcheck());
