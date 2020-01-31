@@ -40,6 +40,7 @@ netlifyIdentity.on("login", user => {
     document.getElementById("usrtag").innerHTML = user.email;
     localStorage.setItem("uid", user.id);
     localStorage.setItem("email", user.email);
+    window.location = "/";
 })
 
 netlifyIdentity.on("logout", () => {
