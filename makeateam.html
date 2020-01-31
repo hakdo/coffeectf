@@ -18,13 +18,14 @@
         <button class="teambtn" id="jointeam">I have an invite code!</button>
     </div>
     <div id="actionpanel">
-        <form name="form-new-team" id="form-new-team" method="post">
+        <form name="form-new-team" action="/.netlify/hello/teams/join" id="form-new-team" method="post">
             <label for="team-name">Team name</label>
             <input 
                 type="text" 
                 placeholder="Funny team name here (will be public)"
                 id="team-name" class="hacker-input"
             />
+            <button type="submit">Hack it!</button>
         </form>
     </div>
 

@@ -19,6 +19,10 @@ router.get('/teams', (req, res) => {
   res.send('You will get teams here')
 })
 
+app.post('/teams/join', (req, res) => {
+  res.redirect('/')
+})
+
 app.use(bodyParser.json());
 app.use('/.netlify/functions/hello', router);  // path must route to lambda
 // app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
