@@ -20,6 +20,7 @@ mongoose.connect(mongostr, {useNewUrlParser: true})
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error to db: '));
 db.once('open', function () {
+  console.log("We have opened the database successfully.")
 // db code goes here.
   var memberSchema = new mongoose.Schema({
     uid: String,
@@ -50,6 +51,7 @@ db.once('open', function () {
       var newteam = new HackerTeam(myteam);
       newteam.save(function (err, data) {
         if (err) {
+          console.log('Error saving data for new team: ', err);
           res.redirect('/')
         } else {
           // ok, se we crated a new team, let's just dump it to the browser first...
