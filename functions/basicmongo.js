@@ -4,6 +4,17 @@ let conn = null;
 
 const uri = 'mongodb://' + process.env.mongostring;
 
+var kakeparser = function (cookie) {
+    var kakeboks = {};
+    var smuler = [];
+    var kakemiks = cookie.split(";").split(",");
+    for (kakebit of kakemiks) {
+        smuler = kakebit.split("=");
+        kakeboks[smuler[0]] = smuler[1];
+    }
+    return kakeboks
+}
+
 exports.handler = async function(event, context, callback) {
   // Make sure to add this so you can re-use `conn` between function calls.
   // See https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
@@ -24,7 +35,9 @@ exports.handler = async function(event, context, callback) {
     conn.model('HackerTeams', new mongoose.Schema({name: String, owner: String, secret: String, members: [] }));
   }
   // look for some information...
-  console.log(event)
+  console.log(event.headers.cookie)
+  var kaker = kakeparser(event.headers.cookie);
+  console.log(kaker);
   console.log('Context', context)
 
   const M = conn.model('HackerTeams');
