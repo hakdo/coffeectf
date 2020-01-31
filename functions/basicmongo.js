@@ -8,7 +8,7 @@ var kakeparser = function (cookie) {
     var kakeboks = {};
     var smuler = [];
     try {
-        var kakemiks = cookie.split(";").split(",");
+        var kakemiks = cookie.split(/[;,]+/);
         for (kakebit of kakemiks) {
             smuler = kakebit.split("=");
             kakeboks[smuler[0]] = smuler[1];
