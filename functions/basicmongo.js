@@ -7,10 +7,14 @@ const uri = 'mongodb://' + process.env.mongostring;
 var kakeparser = function (cookie) {
     var kakeboks = {};
     var smuler = [];
-    var kakemiks = cookie.split(";").split(",");
-    for (kakebit of kakemiks) {
-        smuler = kakebit.split("=");
-        kakeboks[smuler[0]] = smuler[1];
+    try {
+        var kakemiks = cookie.split(";").split(",");
+        for (kakebit of kakemiks) {
+            smuler = kakebit.split("=");
+            kakeboks[smuler[0]] = smuler[1];
+        }
+    } catch (error) {
+        console.log("something bad happened. ", error)
     }
     return kakeboks
 }
@@ -36,8 +40,8 @@ exports.handler = async function(event, context, callback) {
   }
   // look for some information...
   console.log(event);
-  // var kaker = kakeparser(event.headers.cookie);
-  // console.log(kaker);
+  var kaker = kakeparser(event.headers.cookie);
+  console.log(kaker);
   console.log('Context', context)
 
   const M = conn.model('HackerTeams');
