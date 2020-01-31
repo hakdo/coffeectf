@@ -14,11 +14,11 @@
     <div id="usrtag"></div>
 
     <div id="buttons">
-        <button class="hackbtn" id="newteam">Start a new team</button>
+        <button class="" id="newteam">Start a new team</button>
         <button class="hackbtn" id="jointeam">I have an invite code!</button>
     </div>
     <div id="actionpanel">
-        <form name="form-new-team" action="/.netlify/functions/hello/teams/join" id="form-new-team" method="post">
+        <form name="form-new-team" id="form-new-team" method="post" data-netlify="true">
             <input type="hidden" value="create" name="jointype" id="jointype" />
             <label for="team">Team name</label>
             <input 
