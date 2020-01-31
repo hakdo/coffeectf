@@ -48,7 +48,7 @@ exports.handler = async function(event, context, callback) {
   console.log(event);
   var kaker = kakeparser(event.headers.cookie);
   console.log(kaker);
-  if (kaker.keys().includes('nf_jwt')) {
+  if (Object.keys(kaker).includes('nf_jwt')) {
       var mininfo = getdatafromjwt(kaker['nf_jwt'])
   }
   console.log('Decoded: ', mininfo);
