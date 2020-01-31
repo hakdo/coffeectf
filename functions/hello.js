@@ -4,6 +4,7 @@ const serverless = require('serverless-http');
 const app = express();
 const bodyParser = require('body-parser');
 var mongostr = 'mongodb://' + process.env.mongostring;
+console.log("Mongostrin is: ", mongostr);
 const mongoose = require('mongoose');
 
 const router = express.Router();
