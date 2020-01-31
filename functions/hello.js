@@ -19,7 +19,7 @@ router.get('/teams', (req, res) => {
   res.send('You will get teams here')
 })
 
-app.post('/teams/join', (req, res) => {
+router.post('/teams/join', (req, res) => {
   res.redirect('/')
 })
 
