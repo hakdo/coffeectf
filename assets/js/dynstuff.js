@@ -24,16 +24,14 @@ if (window.location.pathname.includes('loginrequired')) {
 
 // listeners on the makeateam page
 if (window.location.pathname.includes('makeateam')) {
+    var user = localStorage.getItem("userinfo");
+    document.getElementById("uid-field").value = user.id;
+    document.getElementById("email-field").value = user.email;
     document.getElementById("newteam").addEventListener("click", function () {
         document.getElementById("jointype").value = "create";
     })
     document.getElementById("jointeam").addEventListener("click", function () {
         document.getElementById("jointype").value = "join";
-    })
-    document.getElementById("form-new-team").addEventListener("load", function () {
-        var user = localStorage.getItem("userinfo");
-        document.getElementById("uid-field").value = user.id;
-        document.getElementById("email-field").value = user.email;
     })
 }
 
