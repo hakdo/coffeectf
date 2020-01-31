@@ -37,7 +37,7 @@ exports.handler = async function(event, context, callback) {
   // look for some information...
   console.log(event);
   // var kaker = kakeparser(event.headers.cookie);
-  console.log(kaker);
+  // console.log(kaker);
   console.log('Context', context)
 
   const M = conn.model('HackerTeams');
