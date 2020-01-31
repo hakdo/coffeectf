@@ -36,7 +36,7 @@ if (window.location.pathname.includes('makeateam')) {
 
 netlifyIdentity.on("login", user => {
     document.getElementById("usrtag").innerHTML = user.email;
-    localStorage.setItem("userinfo", "user");
+    localStorage.setItem("userinfo", user);
 })
 
 netlifyIdentity.on("logout", () => {
