@@ -30,13 +30,17 @@ if (window.location.pathname.includes('makeateam')) {
     document.getElementById("jointeam").addEventListener("click", function () {
         document.getElementById("jointype").value = "join";
     })
-    var user = localStorage.getItem("userinfo");
-    document.getElementById("uid-field").value = user.id;
+    document.getElementById("form-new-team").addEventListener("load", function () {
+        var user = localStorage.getItem("userinfo");
+        document.getElementById("uid-field").value = user.id;
+        document.getElementById("email-field").value = user.email;
+    })
 }
 
 netlifyIdentity.on("login", user => {
     document.getElementById("usrtag").innerHTML = user.email;
-    localStorage.setItem("userinfo", user);
+    localStorage.setItem("uid", user.id);
+    localStorage.setItem("email", user.email);
 })
 
 netlifyIdentity.on("logout", () => {
