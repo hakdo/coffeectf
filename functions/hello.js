@@ -19,7 +19,10 @@ router.get('/teams', (req, res) => {
 })
 
 router.post('/teams/join', (req, res) => {
-  res.redirect('/')
+  // get the type of join request
+  var jointype = request.body.jointype;
+  console.log(jointype);
+  res.redirect('/?jointype=' + jointype)
 })
 
 app.use(bodyParser.json());
