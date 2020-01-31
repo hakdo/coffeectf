@@ -19,6 +19,12 @@ var kakeparser = function (cookie) {
     return kakeboks
 }
 
+var getdatafromjwt = function (jwt) {
+    var payload = jwt.split('.')[1];
+    var decoded = Buffer.from(payload, 'base64').toString('utf8');
+    return decoded;
+}
+
 exports.handler = async function(event, context, callback) {
   // Make sure to add this so you can re-use `conn` between function calls.
   // See https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
@@ -42,7 +48,11 @@ exports.handler = async function(event, context, callback) {
   console.log(event);
   var kaker = kakeparser(event.headers.cookie);
   console.log(kaker);
-  console.log('Context', context)
+  if (kaker.keys().includes('nf_jwt')) {
+      var mininfo = getdatafromjwt(kaker['nf_jwt'])
+  }
+  console.log('Decoded: ', mininfo);
+  console.log('Context', context);
 
   const M = conn.model('HackerTeams');
 
