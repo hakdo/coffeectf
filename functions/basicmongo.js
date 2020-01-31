@@ -4,7 +4,7 @@ let conn = null;
 
 const uri = 'mongodb://' + process.env.mongostring;
 
-exports.handler = async function(event, context) {
+exports.handler = async function(event, context, callback) {
   // Make sure to add this so you can re-use `conn` between function calls.
   // See https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
   context.callbackWaitsForEmptyEventLoop = false;
@@ -27,7 +27,9 @@ exports.handler = async function(event, context) {
   const M = conn.model('HackerTeams');
 
   const doc = await M.findOne();
-  console.log(doc);
-
-  return JSON.stringify(doc);
+  
+  callback(null, {
+      statusCode: 200,
+      body: JSON.stringify(doc)
+  })
 };
