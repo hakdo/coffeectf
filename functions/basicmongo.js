@@ -22,7 +22,7 @@ var kakeparser = function (cookie) {
 var getdatafromjwt = function (jwt) {
     var payload = jwt.split('.')[1];
     var decoded = Buffer.from(payload, 'base64').toString('utf8');
-    return decoded;
+    return JSON.parse(decoded);
 }
 
 exports.handler = async function(event, context, callback) {
