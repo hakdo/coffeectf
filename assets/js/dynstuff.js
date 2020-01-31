@@ -24,9 +24,10 @@ if (window.location.pathname.includes('loginrequired')) {
 
 // listeners on the makeateam page
 if (window.location.pathname.includes('makeateam')) {
-    var user = localStorage.getItem("userinfo");
-    document.getElementById("uid-field").value = user.id;
-    document.getElementById("email-field").value = user.email;
+    var uid = localStorage.getItem("uid");
+    var email = localStorage.getItem("email");
+    document.getElementById("uid-field").value = uid;
+    document.getElementById("email-field").value = email;
     document.getElementById("newteam").addEventListener("click", function () {
         document.getElementById("jointype").value = "create";
     })
@@ -43,6 +44,7 @@ netlifyIdentity.on("login", user => {
 
 netlifyIdentity.on("logout", () => {
     document.getElementById("usrtag").innerHTML = "anonymous@donkey.business";
+    localStorage.clear();
     window.location = "/";
 })
 
