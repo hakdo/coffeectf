@@ -35,8 +35,8 @@ exports.handler = async function(event, context, callback) {
     conn.model('HackerTeams', new mongoose.Schema({name: String, owner: String, secret: String, members: [] }));
   }
   // look for some information...
-  console.log(event.headers.cookie)
-  var kaker = kakeparser(event.headers.cookie);
+  console.log(event);
+  // var kaker = kakeparser(event.headers.cookie);
   console.log(kaker);
   console.log('Context', context)
 
