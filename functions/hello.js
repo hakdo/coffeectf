@@ -40,7 +40,7 @@ db.once('open', function () {
     // get the type of join request
     var jointype = req.body.jointype;
     var contentdata = req.body.team;
-    if (jointype === 'craete') {
+    if (jointype === 'create') {
       // create a new team
       var myteam = {
         name: contentdata,
@@ -64,7 +64,10 @@ db.once('open', function () {
 
 })
 
-
+router.get('/env', (req, res) => {
+  var myvar = process.env.testvariable;
+  res.send(testvariable);
+})
 
 router.get('/teams', (req, res) => {
   res.send('You will get teams here')
