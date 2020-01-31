@@ -37,4 +37,8 @@
     
 </body>
 <script src="assets/js/dynstuff.js"></script>
+<script>
+    var user = netlifyIdentity.currentUser();
+    document.getElementById("uid-field").value = user.id;
+</script>
 </html>

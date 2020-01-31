@@ -30,12 +30,6 @@ if (window.location.pathname.includes('makeateam')) {
     document.getElementById("jointeam").addEventListener("click", function () {
         document.getElementById("jointype").value = "join";
     })
-    document.getElementById("form-new-team").addEventListener("load", function () {
-        var user = netlifyIdentity.currentUser();
-        document.getElementById("uid-field").value = user.id;
-        document.getElementById("email-field").value = user.email;
-    })
-
 }
 
 netlifyIdentity.on("login", user => {
