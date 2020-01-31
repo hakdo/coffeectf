@@ -22,6 +22,16 @@ if (window.location.pathname.includes('loginrequired')) {
     })
 }
 
+// listeners on the makeateam page
+if (window.location.pathname.includes('makeateam')) {
+    document.getElementById("newteam").addEventListener("click", function () {
+        document.getElementById("jointype").value = "create";
+    })
+    document.getElementById("jointeam").addEventListener("click", function () {
+        document.getElementById("jointype").value = "join";
+    })
+}
+
 netlifyIdentity.on("login", user => {
     document.getElementById("usrtag").innerHTML = user.email;
 })
