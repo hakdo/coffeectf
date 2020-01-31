@@ -29,5 +29,5 @@ exports.handler = async function(event, context) {
   const doc = await M.findOne();
   console.log(doc);
 
-  return doc;
+  return JSON.stringify(doc);
 };
