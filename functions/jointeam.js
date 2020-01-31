@@ -23,8 +23,6 @@ exports.handler = async function(event, context, callback) {
     });
     conn.model('HackerTeams', new mongoose.Schema({name: String, owner: String, secret: String, members: [] }));
   }
-  console.log(event.httpMethod)
-  console.log('Context', context)
 
   const M = conn.model('HackerTeams');
 
