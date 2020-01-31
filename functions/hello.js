@@ -66,7 +66,7 @@ db.once('open', function () {
 
 router.get('/env', (req, res) => {
   var myvar = process.env.testvariable;
-  res.send(testvariable);
+  res.send(myvar);
 })
 
 router.get('/teams', (req, res) => {
