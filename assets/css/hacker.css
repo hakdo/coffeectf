@@ -42,7 +42,8 @@ div.cmd {
 
 .hackbtn {
   height: 25px;
-  width: 100%;
+  background-color: #444;
+  color: #ccc;
 }
 
 input.cmd {
@@ -69,6 +70,12 @@ input.cmd {
   font-family: "courier";
 }
 
+.form-control {
+  width: 60%;
+  max-width: 800px;
+  min-width: 250px;
+}
+
 .errmsg {
   color: white;
   font-size: larger;
@@ -87,6 +94,12 @@ input.cmd {
   color: #fff;
   background-color: #444;
   padding: 15px;
+}
+
+#actionpanel {
+  padding: 5px;
+  margin: 0 auto;
+  margin-top: 15px;
 }
 
 .netlify-identity-login {
