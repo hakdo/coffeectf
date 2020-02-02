@@ -35,13 +35,24 @@ if (window.location.pathname.includes('makeateam')) {
     })
 }
 
+var teamlist = function (teams) {
+    // expects an array of team objects
+    var teamholder = document.getElementById("teamplate");
+    for (team of teams) {
+        var newteam = document.createElement("p");
+        var textnode = document.createTextNode(team.name);
+        newteam.appendChild(textnode);
+        teamholder.appendChild(newteam);
+    }
+}
+
 if (window.location.pathname.includes('jointeam')) {
     var uid = localStorage.getItem("uid");
     var email = localStorage.getItem("email");
     // get all the available teams...
     fetch('/.netlify/functions/basicmongo')
         .then((response) => {
-            document.getElementById("teamplate").innerText = response.json();
+            teamlist(response.json())
         })
         .catch((err) => {
             console.log(err);
