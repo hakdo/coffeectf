@@ -35,6 +35,13 @@ if (window.location.pathname.includes('makeateam')) {
     })
 }
 
+var clearteamselection = function () {
+    var teams = document.getElementsByClassName("hackteam");
+    Array(teams).forEach((team) => {
+        team.classList.remove("selected");
+    })
+}
+
 var teamlist = function (teams) {
     // expects an array of team objects
     var teamholder = document.getElementById("teamplate");
@@ -45,7 +52,9 @@ var teamlist = function (teams) {
         var textnode = document.createTextNode(team.name);
         newteam.appendChild(textnode);
         newteam.addEventListener("click", function() {
-            alert(newteam.id);
+            document.getElementById("teamid").value = newteam.id;
+            clearteamselection();
+            newteam.classList.add("selected");
         })
         teamholder.appendChild(newteam);
     }
