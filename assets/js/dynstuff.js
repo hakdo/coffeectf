@@ -20,13 +20,16 @@ if (window.location.pathname.includes('loginrequired')) {
         netlifyIdentity.open();
     })
 }
-
-// listeners on the makeateam page
-if (window.location.pathname.includes('makeateam')) {
+var popmail = function () {
     var uid = localStorage.getItem("uid");
     var email = localStorage.getItem("email");
     document.getElementById("uid-field").value = uid;
     document.getElementById("email-field").value = email;
+}
+
+// listeners on the makeateam page
+if (window.location.pathname.includes('makeateam')) {
+    popmail();
     document.getElementById("newteam").addEventListener("click", function () {
         document.getElementById("jointype").value = "create";
     })
@@ -56,8 +59,7 @@ var teamlist = function (teams) {
 }
 
 if (window.location.pathname.includes('jointeam')) {
-    var uid = localStorage.getItem("uid");
-    var email = localStorage.getItem("email");
+    popmail();
     // get all the available teams...
     fetch('/.netlify/functions/basicmongo')
         .then((response) => {
