@@ -39,7 +39,7 @@ if (window.location.pathname.includes('jointeam')) {
     var uid = localStorage.getItem("uid");
     var email = localStorage.getItem("email");
     // get all the available teams...
-    fetch('/.netlify/fucntions/basicmongo')
+    fetch('/.netlify/functions/basicmongo')
         .then((response) => {
             document.getElementById("teamplate").innerText = response.json();
         })
