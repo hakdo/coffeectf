@@ -72,7 +72,7 @@ if (window.location.pathname.includes('jointeam')) {
                 team.addEventListener("click", function() {
                     document.getElementById("teamid").value = this.id;
                     clearteamselection();
-                    document.getElementById(team.id).classList.add("selected");
+                    document.getElementById(this.id).classList.add("selected");
                 })
             }
         })
