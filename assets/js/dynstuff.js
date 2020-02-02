@@ -70,9 +70,9 @@ if (window.location.pathname.includes('jointeam')) {
             teamlist = document.getElementsByClassName("hackteam");
             for (team of teamlist) {
                 team.addEventListener("click", function() {
-                    document.getElementById("teamid").value = team.id;
+                    document.getElementById("teamid").value = this.id;
                     clearteamselection();
-                    team.classList.add("selected");
+                    document.getElementById(team.id).classList.add("selected");
                 })
             }
         })
