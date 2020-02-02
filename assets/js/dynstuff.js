@@ -55,7 +55,7 @@ if (window.location.pathname.includes('jointeam')) {
             return response.json();
         })
         .then((jsonteams) => {
-            console.log(jsonteams);
+            teamlist(jsonteams)
         })
         .catch((err) => {
             console.log(err);
