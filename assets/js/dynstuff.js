@@ -51,11 +51,6 @@ var teamlist = function (teams) {
         newteam.setAttribute("class", "hackteam");
         var textnode = document.createTextNode(team.name);
         newteam.appendChild(textnode);
-        newteam.addEventListener("click", function() {
-            document.getElementById("teamid").value = newteam.id;
-            clearteamselection();
-            newteam.classList.add("selected");
-        })
         teamholder.appendChild(newteam);
     }
 }
@@ -70,6 +65,16 @@ if (window.location.pathname.includes('jointeam')) {
         })
         .then((jsonteams) => {
             teamlist(jsonteams)
+        })
+        .then(() => {
+            teamlist = document.getElementsByClassName("hackteam");
+            for (team of teamlist) {
+                team.addEventListener("click", function() {
+                    document.getElementById("teamid").value = team.id;
+                    clearteamselection();
+                    team.classList.add("selected");
+                })
+            }
         })
         .catch((err) => {
             console.log(err);
