@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/assets/css/hacker.css">
+    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <title>Coffee CTF</title>
+</head>
+<body>
+    <div id="netlifybtn" data-netlify-identity-button></div>
+    <h1>Join a team</h1>
+    <div id="usrtag"></div>
+
+    <div id="actionpanel">
+        <form name="form-new-team" id="form-new-team" method="post" data-netlify="true">
+            <input type="hidden" value="jointeam" name="jointype" id="jointype" />
+            <input type="hidden" value="empty" name="uid" id="uid-field" />
+            <input type="hidden" value="empty" name="email" id="email-field" />
+            <input type="hidden" value="empty" name="teamname" id="teamname" />
+            <label for="team">Secret</label><br>
+            <input 
+            type="text" 
+            id="team" 
+            name="team"
+            class="form-control"
+            />
+            <button type="submit" class="hackbtn">Hack it!</button>
+        </form>
+    </div>
+
+    <div id="teams">
+        <!-- List the available teams here -->
+        <ul>
+
+        </ul>
+    </div>
+
+
+    
+</body>
+<script src="assets/js/dynstuff.js"></script>
+</html>

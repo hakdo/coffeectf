@@ -35,6 +35,12 @@ if (window.location.pathname.includes('makeateam')) {
     })
 }
 
+if (window.location.pathname.includes('jointeam')) {
+    var uid = localStorage.getItem("uid");
+    var email = localStorage.getItem("email");
+    // get all the available teams...
+}
+
 netlifyIdentity.on("login", user => {
     document.getElementById("usrtag").innerHTML = user.email;
     localStorage.setItem("uid", user.id);

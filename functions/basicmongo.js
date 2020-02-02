@@ -56,7 +56,7 @@ exports.handler = async function(event, context, callback) {
 
   const M = conn.model('HackerTeams');
 
-  const doc = await M.findOne();
+  const doc = await M.find({});
   
   callback(null, {
       statusCode: 200,
