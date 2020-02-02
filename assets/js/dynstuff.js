@@ -41,7 +41,7 @@ var teamlist = function (teams) {
     for (team of teams) {
         var newteam = document.createElement("p");
         newteam.id = team._id;
-        newteam.class = "hackteam";
+        newteam.setAttribute("class", "hackteam") = "hackteam";
         var textnode = document.createTextNode(team.name);
         newteam.appendChild(textnode);
         teamholder.appendChild(newteam);
