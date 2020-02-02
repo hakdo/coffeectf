@@ -40,6 +40,8 @@ var teamlist = function (teams) {
     var teamholder = document.getElementById("teamplate");
     for (team of teams) {
         var newteam = document.createElement("p");
+        newteam.id = team._id;
+        newteam.class = "hackteam";
         var textnode = document.createTextNode(team.name);
         newteam.appendChild(textnode);
         teamholder.appendChild(newteam);
