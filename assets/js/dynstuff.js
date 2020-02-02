@@ -53,7 +53,6 @@ if (window.location.pathname.includes('jointeam')) {
     fetch('/.netlify/functions/basicmongo')
         .then((response) => {
             console.log(response.json())
-            teamlist(response.json())
         })
         .catch((err) => {
             console.log(err);
