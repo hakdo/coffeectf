@@ -44,6 +44,9 @@ var teamlist = function (teams) {
         newteam.setAttribute("class", "hackteam");
         var textnode = document.createTextNode(team.name);
         newteam.appendChild(textnode);
+        newteam.addEventListener("click", function() {
+            alert(newteam.id);
+        })
         teamholder.appendChild(newteam);
     }
 }
