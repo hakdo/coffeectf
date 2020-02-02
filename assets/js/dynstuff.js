@@ -37,9 +37,9 @@ if (window.location.pathname.includes('makeateam')) {
 
 var clearteamselection = function () {
     var teams = document.getElementsByClassName("hackteam");
-    Array(teams).forEach((team) => {
+    for (team of teams) {
         team.classList.remove("selected");
-    })
+    }
 }
 
 var teamlist = function (teams) {
