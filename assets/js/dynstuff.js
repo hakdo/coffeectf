@@ -52,7 +52,10 @@ if (window.location.pathname.includes('jointeam')) {
     // get all the available teams...
     fetch('/.netlify/functions/basicmongo')
         .then((response) => {
-            console.log(response.json())
+            return response.json();
+        })
+        .then((jsonteams) => {
+            console.log(jsonteams);
         })
         .catch((err) => {
             console.log(err);
