@@ -29,6 +29,7 @@ exports.handler = async function(event, context, callback) {
   // Make sure to add this so you can re-use `conn` between function calls.
   // See https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
   context.callbackWaitsForEmptyEventLoop = false;
+  console.log(context);
 
   // Because `conn` is in the global scope, Lambda may retain it between
   // function calls thanks to `callbackWaitsForEmptyEventLoop`.
