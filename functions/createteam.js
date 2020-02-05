@@ -52,6 +52,10 @@ exports.handler = async function(event, context, callback) {
     // Check if user is logged in, create new team if name is unique. Check in code instead of enforcing name as index. 
     const doc = await M.findOne({"name": "bingo"});
     console.log(doc);
-    callback(null, {statusCode: 200, body: JSON.stringify(doc)});
+    if (doc) {
+      // document exists, do not create
+      callback(null, {statusCode: 200, body: JSON.stringify({success: false, msg: "Team name not accepted."})});
+    }
+    callback(null, {statusCode: 200, body: JSON.stringify({success: true, msg: "Team name is free."})});
   }
 };
