@@ -62,10 +62,7 @@ exports.handler = async function(event, context, callback) {
       callback(null, {statusCode: 403});
     }
     var mybodyparams = bodyparser(event.body); // required for new team - unique name, must have an owner. Owner we can get from cookie --> jwt --> decode. Cookie in context?
-    console.log(context);
-    console.log(mybodyparams);
     const doc = await M.findOne({"name": mybodyparams.name});
-    console.log(doc);
     if (doc) {
       // document exists, do not create
       callback(null, {
@@ -73,11 +70,15 @@ exports.handler = async function(event, context, callback) {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({success: false, msg: "Team name not accepted."})
       });
+    } else {
+      // create a new document
+      myteam = new HackerTeam({name: mybodyparams.name});
+      console.log("User info: ", mininfo);
+      callback(null, {
+        statusCode: 200, 
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({success: true, msg: "Team name available."})
+      });
     }
-    callback(null, {
-      statusCode: 200, 
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({success: true, msg: "Team name available."})
-    });
   }
 };
