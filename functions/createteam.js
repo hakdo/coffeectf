@@ -52,7 +52,8 @@ exports.handler = async function(event, context, callback) {
   if (event.httpMethod == 'POST') {
     // Check if user is logged in, create new team if name is unique. Check in code instead of enforcing name as index. 
     // get the body parameters
-    var mybodyparams = bodyparser(event.body);
+    var mybodyparams = bodyparser(event.body); // required for new team - unique name, must have an owner. Owner we can get from cookie --> jwt --> decode. Cookie in context?
+    console.log(context);
     console.log(mybodyparams);
     const doc = await M.findOne({"name": mybodyparams.name});
     console.log(doc);
