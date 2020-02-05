@@ -54,12 +54,13 @@ exports.handler = async function(event, context, callback) {
 
   const M = conn.model('HackerTeams');
   var myparams = event.queryStringParameters;
+  var doc;
   if (myparams) {
     console.log("Finding teams where member includes " + myparams.member)
-    const doc = await M.find({members: myparams.member});
+    doc = await M.find({members: myparams.member});
   } else {
     console.log("Returning all teams");
-    const doc = await M.find({});
+    doc = await M.find({});
   }
   
   callback(null, {
