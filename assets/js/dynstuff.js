@@ -83,6 +83,21 @@ if (window.location.pathname.includes('jointeam')) {
         })
 }
 
+if (window.location.pathname.includes('myteams')) {
+    popmail();
+    // get all the available teams...
+    fetch('/.netlify/functions/basicmongo')
+        .then((response) => {
+            return response.json();
+        })
+        .then((jsonteams) => {
+            teamlist(jsonteams)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
 netlifyIdentity.on("login", user => {
     document.getElementById("usrtag").innerHTML = user.email;
     localStorage.setItem("uid", user.id);
