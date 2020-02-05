@@ -55,10 +55,10 @@ exports.handler = async function(event, context, callback) {
       callback(new Error("Document already exists with that name."))
     } else {
       console.log(event.body)
-      callback(null, {
+      callback(null, JSON.stringify({
           statusCode: 200,
           body: JSON.stringify(doc)
-      })
+      }))
     }
   }
 };
