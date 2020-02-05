@@ -30,8 +30,8 @@ var bodyparser = function (body) {
     var bodyparams = payload.split('&');
     var cleanload = {}; var smuler = [];
     for (param of bodyparams) {
-        smuler = param.split("=");
-        cleanload[smumer[0]] = smuler[1];
+        var smuler = param.split("=");
+        cleanload[smuler[0]] = smuler[1];
     }
     // remove url encoding...
     return cleanload;
