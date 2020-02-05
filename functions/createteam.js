@@ -53,12 +53,12 @@ exports.handler = async function(event, context, callback) {
     const doc = await M.findOne({name: 'something'});
     if (doc) {
       console.log("Doc found: ",doc)
-      callback(null, JSON.stringify(doc))
+      callback(null, doc)
     } else {
       console.log(event.body)
       callback(null, JSON.stringify({
           statusCode: 200,
-          body: JSON.stringify(doc)
+          body: doc.name
       }))
     }
   }
