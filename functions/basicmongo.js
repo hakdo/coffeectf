@@ -50,9 +50,9 @@ exports.handler = async function(event, context, callback) {
   console.log(kaker);
   if (Object.keys(kaker).includes('nf_jwt')) {
       var mininfo = getdatafromjwt(kaker['nf_jwt'])
+      console.log('Decoded: ', mininfo);
+      console.log('Context', context);
   }
-  console.log('Decoded: ', mininfo);
-  console.log('Context', context);
 
   const M = conn.model('HackerTeams');
 

@@ -49,13 +49,19 @@ exports.handler = async function(event, context, callback) {
 
   const M = conn.model('HackerTeams');
   if (event.httpMethod == 'POST') {
-    // check if the name jointype parameter is set to create
-    var jointype = event.body
+    // Check if user is logged in, create new team if name is unique. Check in code instead of enforcing name as index. 
+    const doc = await M.findOne({name: 'something'});
+    if (doc) {
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify({success: false, msg: "Team name is not acceptable."})
+      })
+    } else {
+    console.log(event.body)
+    callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(doc)
+    })
+    }
   }
-  const doc = await M.findOne();
-  
-  callback(null, {
-      statusCode: 200,
-      body: JSON.stringify(doc)
-  })
 };
