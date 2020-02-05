@@ -34,6 +34,7 @@ var bodyparser = function (body) {
         cleanload[smumer[0]] = smuler[1];
     }
     // remove url encoding...
+    return cleanload;
 }
 
 exports.handler = async function(event, context, callback) {
@@ -50,6 +51,9 @@ exports.handler = async function(event, context, callback) {
   const M = conn.model('HackerTeams');
   if (event.httpMethod == 'POST') {
     // Check if user is logged in, create new team if name is unique. Check in code instead of enforcing name as index. 
+    // get the body parameters
+    var mybodyparams = bodyparser(event.body);
+    console.log(mybodyparams);
     const doc = await M.findOne({"name": "bingo"});
     console.log(doc);
     if (doc) {
