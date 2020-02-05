@@ -30,6 +30,8 @@ exports.handler = async function(event, context, callback) {
   // See https://www.mongodb.com/blog/post/serverless-development-with-nodejs-aws-lambda-mongodb-atlas
   context.callbackWaitsForEmptyEventLoop = false;
   const { identity, user } = client.clientContext;
+  console.log("Id: ", identity)
+  console.log("User: ", user);
 
   // Because `conn` is in the global scope, Lambda may retain it between
   // function calls thanks to `callbackWaitsForEmptyEventLoop`.
