@@ -52,6 +52,15 @@ exports.handler = async function(event, context, callback) {
   if (event.httpMethod == 'POST') {
     // Check if user is logged in, create new team if name is unique. Check in code instead of enforcing name as index. 
     // get the body parameters
+    var kaker = kakeparser(event.headers.cookie);
+    console.log(kaker);
+    if (Object.keys(kaker).includes('nf_jwt')) {
+        var mininfo = getdatafromjwt(kaker['nf_jwt'])
+    } else {
+      // return a forbidden signal
+      console.log("User is not authenticated.")
+      callback(null, {statusCode: 403});
+    }
     var mybodyparams = bodyparser(event.body); // required for new team - unique name, must have an owner. Owner we can get from cookie --> jwt --> decode. Cookie in context?
     console.log(context);
     console.log(mybodyparams);
