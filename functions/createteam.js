@@ -72,13 +72,14 @@ exports.handler = async function(event, context, callback) {
       });
     } else {
       // create a new document
-      myteam = new M({name: mybodyparams.name});
-      console.log("User info: ", mininfo);
-      callback(null, {
-        statusCode: 200, 
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({success: true, msg: "Team name available."})
-      });
+      myteam = new M({name: mybodyparams.name, owner: mininfo.email, members: [mininfo.email]});
+      myteam.save().then(() => {
+        callback(null, {
+          statusCode: 200, 
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({success: true, msg: "Team name available."})
+        });
+      })
     }
   }
 };
