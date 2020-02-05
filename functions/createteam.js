@@ -51,15 +51,6 @@ exports.handler = async function(event, context, callback) {
   if (event.httpMethod == 'POST') {
     // Check if user is logged in, create new team if name is unique. Check in code instead of enforcing name as index. 
     const doc = await M.findOne({name: 'something'});
-    if (doc) {
-      console.log("Doc found: ",doc)
-      callback(null, doc)
-    } else {
-      console.log(event.body)
-      callback(null, JSON.stringify({
-          statusCode: 200,
-          body: doc.name
-      }))
-    }
+    callback(null, doc);
   }
 };
