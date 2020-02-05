@@ -54,8 +54,16 @@ exports.handler = async function(event, context, callback) {
     console.log(doc);
     if (doc) {
       // document exists, do not create
-      callback(null, {statusCode: 200, body: JSON.stringify({success: false, msg: "Team name not accepted."})});
+      callback(null, {
+        statusCode: 200, 
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({success: false, msg: "Team name not accepted."})
+      });
     }
-    callback(null, {statusCode: 200, body: JSON.stringify({success: true, msg: "Team name is free."})});
+    callback(null, {
+      statusCode: 200, 
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({success: true, msg: "Team name available."})
+    });
   }
 };
