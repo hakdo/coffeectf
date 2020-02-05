@@ -52,7 +52,7 @@ exports.handler = async function(event, context, callback) {
       var mininfo = getdatafromjwt(kaker['nf_jwt'])
   }
 
-  const { identity, user } = client.clientContext;
+  const { identity, user } = context.clientContext;
   console.log("Id: ", identity);
   console.log("User: ", user);
 
