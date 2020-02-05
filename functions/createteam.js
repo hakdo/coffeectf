@@ -54,7 +54,7 @@ exports.handler = async function(event, context, callback) {
     // get the body parameters
     var mybodyparams = bodyparser(event.body);
     console.log(mybodyparams);
-    const doc = await M.findOne({"name": "bingo"});
+    const doc = await M.findOne({"name": mybodyparams.name});
     console.log(doc);
     if (doc) {
       // document exists, do not create
