@@ -52,6 +52,7 @@ exports.handler = async function(event, context, callback) {
   if (event.httpMethod == 'POST') {
     // Check if user is logged in, create new team if name is unique. Check in code instead of enforcing name as index. 
     // get the body parameters
+    console.log(event.body)
     var kaker = kakeparser(event.headers.cookie);
     console.log(kaker);
     if (Object.keys(kaker).includes('nf_jwt')) {
