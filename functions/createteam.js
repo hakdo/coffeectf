@@ -74,11 +74,7 @@ exports.handler = async function(event, context, callback) {
       // create a new document
       myteam = new M({name: mybodyparams.name, owner: mininfo.email, members: [mininfo.email]});
       await myteam.save()
-      callback(null, {
-        statusCode: 200, 
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({success: true, msg: "Team name available."})
-      });
+      callback(null, redirect('/'));
     }
   }
 };
