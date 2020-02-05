@@ -75,7 +75,7 @@ exports.handler = async function(event, context, callback) {
       if (mybodyparams.uid == mininfo.sub) {
         myteam = new M({name: mybodyparams.name, owner: mininfo.email, members: [mininfo.email]});
         await myteam.save()
-        return {statusCode: 201, headers: {"Location": process.env.URL}};
+        return {statusCode: 301, headers: {"Location": process.env.URL}};
       } else {
         console.log('Cookie uid is different from form supplied uid')
         callback(null, {statusCode: 403})
