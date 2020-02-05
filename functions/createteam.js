@@ -72,10 +72,11 @@ exports.handler = async function(event, context, callback) {
       });
     } else {
       // create a new document if the uid in the jwt is the same as supplied by the frontend (at least it is not *that* easy to spoof)
+      console.log(process.env)
       if (mybodyparams.uid == mininfo.sub) {
         myteam = new M({name: mybodyparams.name, owner: mininfo.email, members: [mininfo.email]});
         await myteam.save()
-        callback(null, {statusCode: 201, headers: {"Location": "/"}});
+        callback(null, {statusCode: 201, headers: {"Location": "https://coffeectf.netlify.com/"}});
       } else {
         console.log('Cookie uid is different from form supplied uid')
         callback(null, {statusCode: 403})
