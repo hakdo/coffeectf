@@ -84,7 +84,6 @@ if (window.location.pathname.includes('jointeam')) {
 }
 
 if (window.location.pathname.includes('myteams')) {
-    popmail();
     // get all the available teams...
     var email = localStorage.getItem("email");
     fetch('/.netlify/functions/basicmongo?member=' + email)
