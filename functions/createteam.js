@@ -52,7 +52,6 @@ exports.handler = async function(event, context, callback) {
   if (event.httpMethod == 'POST') {
     // Check if user is logged in, create new team if name is unique. Check in code instead of enforcing name as index. 
     // get the body parameters
-    console.log(event.body)
     var kaker = kakeparser(event.headers.cookie);
     console.log(kaker);
     if (Object.keys(kaker).includes('nf_jwt')) {
@@ -63,7 +62,7 @@ exports.handler = async function(event, context, callback) {
       callback(null, {statusCode: 403});
     }
     var mybodyparams = bodyparser(event.body); // required for new team - unique name, must have an owner. Owner we can get from cookie --> jwt --> decode. Cookie in context?
-    const doc = await M.findOne({"name": mybodyparams.name});
+    const doc = await M.findOne({"name": mybodyparams.team});
     if (doc) {
       // document exists, do not create
       callback(null, {
@@ -72,10 +71,15 @@ exports.handler = async function(event, context, callback) {
         body: JSON.stringify({success: false, msg: "Team name not accepted."})
       });
     } else {
-      // create a new document
-      myteam = new M({name: mybodyparams.name, owner: mininfo.email, members: [mininfo.email]});
-      await myteam.save()
-      callback(null, redirect('/'));
+      // create a new document if the uid in the jwt is the same as supplied by the frontend (at least it is not *that* easy to spoof)
+      if (mybodyparams.uid == mininfo.id) {
+        myteam = new M({name: mybodyparams.name, owner: mininfo.email, members: [mininfo.email]});
+        await myteam.save()
+        callback(null, redirect('/'));
+      } else {
+        console.log('Cookie uid is different from form supplied uid')
+        callback(null, {statusCode: 403})
+      }
     }
   }
 };
