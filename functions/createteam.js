@@ -72,7 +72,7 @@ exports.handler = async function(event, context, callback) {
       });
     } else {
       // create a new document
-      myteam = new HackerTeams({name: mybodyparams.name});
+      myteam = new M({name: mybodyparams.name});
       console.log("User info: ", mininfo);
       callback(null, {
         statusCode: 200, 
