@@ -31,7 +31,7 @@ var bodyparser = function (body) {
     var cleanload = {}; var smuler = [];
     for (param of bodyparams) {
         var smuler = param.split("=");
-        cleanload[smuler[0]] = decodeURI(smuler[1].replace("+","%20"));
+        cleanload[smuler[0]] = decodeURI(smuler[1].replace(/\+/g,"%20"));
     }
     // remove url encoding...
     return cleanload;
