@@ -54,8 +54,11 @@ exports.handler = async function(event, context, callback) {
 
   const M = conn.model('HackerTeams');
   var myparams = event.queryStringParameters;
-  console.log(myparams);
-  const doc = await M.find({});
+  if (myparams.member) {
+      const doc = await M.find({members: myparams.member});
+  } else {
+    const doc = await M.find({});
+  }
   
   callback(null, {
       statusCode: 200,
