@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/hakdo/coffeectf#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "mongoose": "^5.8.10",
     "netlify-lambda": "^1.6.3",
     "serverless-http": "^2.3.1"
